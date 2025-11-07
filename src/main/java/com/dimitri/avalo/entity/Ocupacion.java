@@ -1,0 +1,12 @@
+package com.dimitri.avalo.entity;
+
+
+public enum Ocupacion {
+	 
+	    DESEMPLEADO,
+	    EMPLEADO,
+	    ESTUDIANTE,
+	    AMA_DE_CASA,
+	    OTRO
+
+}
