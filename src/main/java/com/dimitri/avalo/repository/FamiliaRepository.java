@@ -1,6 +1,8 @@
 package com.dimitri.avalo.repository;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,5 +24,6 @@ public interface FamiliaRepository extends JpaRepository<Familia, Long> {
 
 	 @Query("SELECT f FROM Familia f WHERE f.activa = true AND LOWER(f.nombre) LIKE LOWER(CONCAT('%', :nombre, '%'))")
 	 List<Familia> buscarPorNombreParcial(@Param("nombre") String nombre);
+	Optional<Familia> findAllByActivaTrue();
 
 } 

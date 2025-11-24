@@ -15,5 +15,6 @@ public interface PreparacionRepository extends JpaRepository<Preparacion, Long> 
   
     boolean existsByRecetaAndFechaPreparacion(Receta receta, LocalDate fecha);
     List<Preparacion> findAllByFechaPreparacionAndActivaTrue(LocalDate fecha);
+    
 }
 

@@ -1,5 +1,7 @@
 package com.dimitri.avalo.entity;
 import java.time.LocalDate;
+import java.util.Optional;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +25,23 @@ public class Preparacion {
     private boolean activa = true; // Para la baja lógica
 
    
-    
-    public Preparacion() {
+    private LocalDate fechaVencimiento;
+   
+
+  
+    public LocalDate getFechaVencimiento() {
+		return fechaVencimiento;
+	}
+
+	public void setFechaVencimiento(LocalDate fechaVencimiento) {
+		this.fechaVencimiento = fechaVencimiento;
+	}
+
+	public LocalDate getFechaPreparacion() {
+		return fechaPreparacion;
+	}
+
+	public Preparacion() {
        
     }
 
@@ -52,9 +69,6 @@ public class Preparacion {
         this.cantidadRaciones = cantidadRaciones;
     }
 
-    public LocalDate getFechaPreparacion() {
-        return fechaPreparacion;
-    }
 
     public void setFechaPreparacion(LocalDate fechaPreparacion) {
         this.fechaPreparacion = fechaPreparacion;
@@ -67,6 +81,8 @@ public class Preparacion {
     public void setActiva(boolean activa) {
         this.activa = activa;
     }
+
+	
 
 	
 }

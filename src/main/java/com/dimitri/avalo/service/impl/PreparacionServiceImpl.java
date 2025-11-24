@@ -43,8 +43,11 @@ public class PreparacionServiceImpl implements PreparacionService {
     	if (preparacion.getFechaPreparacion().isAfter(LocalDate.now())) {
     	    throw new RuntimeException("La fecha de preparación no puede ser futura.");
     	}
+    	// Validar cantidad de raciones
+    	if (preparacion.getCantidadRaciones() <= 0) {
+    	    throw new RuntimeException("La cantidad de raciones debe ser mayor a 0.");
+    	}
 
-    	// -Nva VALIDACIÓN-
     	// Usamos el nuevo método del repositorio para verificar si ya existe una preparación
     	// para esa receta en esa fecha.
     	if (preparacionRepository.existsByRecetaAndFechaPreparacion(receta, preparacion.getFechaPreparacion())) {
@@ -71,7 +74,7 @@ public class PreparacionServiceImpl implements PreparacionService {
             }
         }
         
-        // Si llegamos aquí, significa que hay stock de todo. Ahora sí procedemos a descontar.
+        // Si llegamos aca, significa que hay stock de todo. Ahora sí procedemos a descontar.
         for (ItemReceta item : receta.getItems()) {
             Ingrediente ingrediente = item.getIngrediente();
             
@@ -97,7 +100,7 @@ public class PreparacionServiceImpl implements PreparacionService {
 
     @Override
     public List<Preparacion> listarPreparaciones() {
-        // Aquí podríamos añadir lógica para que solo devuelva las activas si fuera necesario
+        // ACA podríamos añadir lógica para que solo devuelva las activas si fuera necesario
         return preparacionRepository.findAll();
     }
 
@@ -108,7 +111,7 @@ public class PreparacionServiceImpl implements PreparacionService {
         Preparacion preparacionExistente = preparacionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Preparación no encontrada"));
         
-        // Según los requisitos, solo se puede modificar la fecha
+    
         preparacionExistente.setFechaPreparacion(preparacionActualizada.getFechaPreparacion());
         
         return preparacionRepository.save(preparacionExistente);

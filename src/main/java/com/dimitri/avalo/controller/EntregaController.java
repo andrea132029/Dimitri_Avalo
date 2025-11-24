@@ -31,25 +31,31 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*")
 public class EntregaController {
 
-  @Autowired private EntregaService entregaService;
+	 @Autowired
+	    private EntregaService entregaService;
 
-  @GetMapping
-  public ResponseEntity<List<Entrega>> listarEntregas(
-          @RequestParam(required = false) LocalDate fecha,
-          @RequestParam(required = false) Long familiaId) {
-      List<Entrega> entregas = entregaService.listarPorFecha(fecha);
-      return ResponseEntity.ok(entregas);
-  }
+	    @GetMapping
+	    public ResponseEntity<List<Entrega>> listarEntregas(
+	            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha,
+	            @RequestParam(required = false) Long familiaId) {
 
-  @PostMapping
-  public ResponseEntity<Entrega> registrar(@RequestBody Entrega entrega) {
-      return ResponseEntity.ok(entregaService.registrar(entrega));
-  }
+	        if (fecha != null && familiaId != null)
+	            return ResponseEntity.ok(entregaService.listarPorFechaYFamilia(fecha, familiaId));
 
-  @DeleteMapping("/{id}")
-  public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-      entregaService.eliminar(id);
-      return ResponseEntity.noContent().build();
-  }
-}
+	        if (fecha != null)
+	            return ResponseEntity.ok(entregaService.listarPorFecha(fecha));
 
+	        return ResponseEntity.ok(entregaService.listarPorFecha(LocalDate.now()));
+	    }
+
+	    @PostMapping
+	    public ResponseEntity<Entrega> registrar(@RequestBody Entrega entrega) {
+	        return ResponseEntity.ok(entregaService.registrar(entrega));
+	    }
+
+	    @DeleteMapping("/{id}")
+	    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+	        entregaService.eliminar(id);
+	        return ResponseEntity.noContent().build();
+	    }
+	}

@@ -391,6 +391,7 @@ public class RecetaServiceImpl implements RecetaService {
         PreparacionDTO dto = new PreparacionDTO();
         dto.setId(p.getId());
         dto.setRecetaId(receta.getId());
+        dto.setRecetaNombre(receta.getNombre());
         dto.setRacionesGeneradas(p.getCantidadRaciones());
         dto.setFechaPreparacion(p.getFechaPreparacion());
 

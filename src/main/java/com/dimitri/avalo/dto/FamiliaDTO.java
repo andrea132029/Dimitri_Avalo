@@ -10,11 +10,13 @@ import java.util.stream.Collectors;
 
 import com.dimitri.avalo.entity.Familia;
 import com.dimitri.avalo.entity.Integrante;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-
+@Schema(description = "Objeto utilizado para registrar una familia en el sistema")
 public class FamiliaDTO {
 
 	    private Long id;
+	    @Schema(description = "Nombre de la familia", example = "Gómez")
 	    @NotBlank(message = "El nombre no puede estar vacío")
 	    private String nombre;
 
@@ -22,6 +24,7 @@ public class FamiliaDTO {
 	    private LocalDate fechaAlta = LocalDate.now();
 	    @Valid
 	    private int cantidadIntegrantes;
+	    @Schema(description = "Dirección del hogar", example = "Calle 123, Barrio Centro")
 	    private String direccion;
 		private boolean activa = true;
 		private Object integrantes;

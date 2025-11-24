@@ -26,6 +26,8 @@ public interface FamiliaService {
 	        FamiliaDTO modificar(Long id, FamiliaRequestDTO dto);
 	        void eliminar(Long id); // baja lógica
 			int contarIntegrantesActivos(Long id);
+			Familia obtenerPorId(Long id);
+
 	    }
 
 

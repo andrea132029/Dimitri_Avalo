@@ -55,21 +55,31 @@ public class FamiliaServiceImpl implements FamiliaService {//implementa los mét
 	        return toDTO(f);
 	    }
 
-		@Override
-		public List<FamiliaDTO> listarActivas() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	    @Override
+	    public List<FamiliaDTO> listarActivas() {
+	        return repo.findAllByActivaTrue()
+	                   .stream()
+	                   .map(this::toDTO)
+	                   .collect(Collectors.toList());
+	    }
 
-		@Override
-		public void eliminar(Long id) {
-			// TODO Auto-generated method stub
-			
-		}
+	    @Override
+	    public void eliminar(Long id) {
+	        Familia f = repo.findById(id)
+	                .orElseThrow(() -> new Excepcion("Familia no encontrada"));
+	        f.setActiva(false);
+	        repo.save(f);
+	    }
 
-		@Override
-		public int contarIntegrantesActivos(Long id) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-}
+	    @Override
+	    public int contarIntegrantesActivos(Long id) {
+	        Familia f = repo.findById(id)
+	                .orElseThrow(() -> new Excepcion("Familia no encontrada"));
+	        return (int) f.contarIntegrantesActivos();
+	    }
+
+	    @Override
+	    public Familia obtenerPorId(Long id) {
+	        return repo.findById(id).orElse(null);
+	    }
+	}

@@ -66,9 +66,6 @@ public class Integrante extends Persona {
         this.ocupacion = ocupacion;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
 
     public void setActivo(boolean activo) {
         this.activo = activo;
@@ -81,4 +78,15 @@ public class Integrante extends Persona {
     public void setFamilia(Familia familia) {
         this.familia = familia;
     }
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	
+
 }

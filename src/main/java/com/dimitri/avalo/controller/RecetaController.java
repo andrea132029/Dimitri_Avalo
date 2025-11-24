@@ -56,5 +56,17 @@ public class RecetaController {
 return recetaService.filtrar(nombre, minCalorias, maxCalorias);
 }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getRecetaById(@PathVariable Long id) {
+        var receta = recetaService.buscarPorId(id);
+
+        if (receta == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(receta);
+    }
+
+
     }
 
