@@ -3,7 +3,7 @@ package com.dimitri.avalo.exception;
 public class Excepcion extends RuntimeException {
 
     private String atributo;
-    private int statusCode = 400; // por defecto Bad Request
+    private int statusCode = 400; 
 
     public Excepcion(String mensaje) {
         super(mensaje);
@@ -22,4 +22,5 @@ public class Excepcion extends RuntimeException {
     public int getStatusCode() {
         return statusCode;
     }
+
 }

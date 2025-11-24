@@ -1,29 +1,61 @@
 package com.dimitri.avalo.entity;
-import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+@JsonIgnoreProperties({"items"})
 @Entity 
 @Table(name = "receta")
 public class Receta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @NotBlank(message = "El nombre es obligatorio")
     @Column(unique = true, nullable = false)
     private String nombre;
+    
     @NotBlank(message = "La descripción es obligatoria")
     @Column(nullable = false, length = 1000)
     private String descripcion;
 
+    @Column(nullable = false)
+    private Float pesoRacion;
+
+    @Column(nullable = false)
+    private Integer caloriasRacion; 
     
-    @Size(min = 1, message = "La receta debe tener al menos un ingrediente")
+    public Float getPesoRacion() {
+		return pesoRacion;
+	}
+	public void setPesoRacion(Float pesoRacion) {
+		this.pesoRacion = pesoRacion;
+	}
+	public Integer getCaloriasRacion() {
+		return caloriasRacion;
+	}
+	public void setCaloriasRacion(Integer caloriasRacion) {
+		this.caloriasRacion = caloriasRacion;
+	}
+	public void setActiva(Boolean activa) {
+		this.activa = activa;
+	}
+	@Size(min = 1, message = "La receta debe tener al menos un ingrediente")
     @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, orphanRemoval = true) 
     @JsonIgnore
     @Valid

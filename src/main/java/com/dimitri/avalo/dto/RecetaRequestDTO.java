@@ -2,12 +2,24 @@ package com.dimitri.avalo.dto;
 
 import java.util.List;
 
-import com.dimitri.avalo.dto.ItemRecetaDTO;
+public class RecetaRequestDTO {
 
-public class RecetaRequestDTO { //Datos para crear/editar
-
-    private String nombre;
+    public Float getPesoRacion() {
+		return pesoRacion;
+	}
+	public void setPesoRacion(Float pesoRacion) {
+		this.pesoRacion = pesoRacion;
+	}
+	public Integer getCaloriasRacion() {
+		return caloriasRacion;
+	}
+	public void setCaloriasRacion(Integer caloriasRacion) {
+		this.caloriasRacion = caloriasRacion;
+	}
+	private String nombre;
     private String descripcion;
+    public Float pesoRacion;
+    public Integer caloriasRacion;
     private List<ItemRecetaDTO> items;
 
     public String getNombre() {

@@ -8,12 +8,41 @@ public class RecetaDTO {
     private Long id;
     private String nombre;
     private Float caloriasTotales;
+    public Float pesoRacion;
+    public Integer caloriasRacion;
+    public String linkPreparaciones;
+    
+    public String getLinkPreparaciones() {
+		return linkPreparaciones;
+	}
 
-    private List<IngredienteResumenDTO> ingredientes = new ArrayList<>();
+	public void setLinkPreparaciones(String linkPreparaciones) {
+		this.linkPreparaciones = linkPreparaciones;
+	}
 
-    public RecetaDTO() {}
+	private List<IngredienteResumenDTO> ingredientes = new ArrayList<>();
 
-    public Long getId() {
+    public RecetaDTO() {
+    	
+    }
+
+    public Float getPesoRacion() {
+		return pesoRacion;
+	}
+
+	public void setPesoRacion(Float pesoRacion) {
+		this.pesoRacion = pesoRacion;
+	}
+
+	public Integer getCaloriasRacion() {
+		return caloriasRacion;
+	}
+
+	public void setCaloriasRacion(Integer caloriasRacion) {
+		this.caloriasRacion = caloriasRacion;
+	}
+
+	public Long getId() {
         return id;
     }
 

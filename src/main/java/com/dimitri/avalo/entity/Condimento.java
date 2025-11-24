@@ -1,8 +1,6 @@
 package com.dimitri.avalo.entity;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 
 @Entity
 @DiscriminatorValue("Condimento")

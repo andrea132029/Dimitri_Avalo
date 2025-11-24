@@ -1,9 +1,5 @@
 package com.dimitri.avalo.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 public class FamiliaRequestDTO {

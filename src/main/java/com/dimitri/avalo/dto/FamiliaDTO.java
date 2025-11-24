@@ -1,16 +1,16 @@
 package com.dimitri.avalo.dto;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.dimitri.avalo.entity.Familia;
 import com.dimitri.avalo.entity.Integrante;
+
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 @Schema(description = "Objeto utilizado para registrar una familia en el sistema")
 public class FamiliaDTO {

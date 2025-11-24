@@ -31,6 +31,8 @@ public interface RecetaService {
 		RecetaDTO crearDesdeDTO(RecetaRequestDTO dto);
 		PreparacionDTO prepararReceta(PreparacionRequestDTO dto);
 		PreparacionDTO prepararReceta(Long recetaId, int raciones);
+		
+	  
 
 
 	    

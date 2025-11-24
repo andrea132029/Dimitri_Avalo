@@ -1,18 +1,18 @@
 package com.dimitri.avalo.service.impl;
 
-import com.dimitri.avalo.entity.Preparacion;
-import com.dimitri.avalo.entity.Entrega;
-import com.dimitri.avalo.entity.Producto;
-import com.dimitri.avalo.repository.PreparacionRepository;
-import com.dimitri.avalo.repository.EntregaRepository;
-import com.dimitri.avalo.repository.ProductoRepository;
-import com.dimitri.avalo.service.ReporteService;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.*;
-import java.util.stream.Collectors;
+import com.dimitri.avalo.repository.EntregaRepository;
+import com.dimitri.avalo.repository.PreparacionRepository;
+import com.dimitri.avalo.repository.ProductoRepository;
+import com.dimitri.avalo.service.ReporteService;
 
 @Service
 public class ReporteServiceImpl implements ReporteService {

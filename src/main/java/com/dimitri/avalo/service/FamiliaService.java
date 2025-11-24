@@ -1,12 +1,9 @@
 package com.dimitri.avalo.service;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.dimitri.avalo.dto.FamiliaDTO;
 import com.dimitri.avalo.dto.FamiliaRequestDTO;
 import com.dimitri.avalo.entity.Familia;
-import com.dimitri.avalo.exception.Excepcion;
 
 
 public interface FamiliaService {

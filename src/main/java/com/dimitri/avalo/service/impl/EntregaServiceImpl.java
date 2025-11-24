@@ -1,10 +1,8 @@
 package com.dimitri.avalo.service.impl;
 
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

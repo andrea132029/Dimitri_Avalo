@@ -1,19 +1,18 @@
 package com.dimitri.avalo.dto;
 
-import java.time.LocalDate;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+import java.time.LocalDate;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.hateoas.RepresentationModel;
-import org.springframework.hateoas.Link;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
 import com.dimitri.avalo.controller.AsistenciaController;
 import com.dimitri.avalo.controller.FamiliaController;
 import com.dimitri.avalo.controller.RecetaController;
 import com.dimitri.avalo.entity.Asistencia;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * DTO de salida para mostrar los datos de una asistencia registrada.
