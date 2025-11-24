@@ -1,8 +1,5 @@
 package com.dimitri.avalo.exception;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 public class Excepcion extends RuntimeException {
 
@@ -25,14 +22,6 @@ public class Excepcion extends RuntimeException {
         this.atributo = atributo;
     }
     
-    @ControllerAdvice
-    public class GlobalExceptionHandler {
-
-        @ExceptionHandler(NumberFormatException.class)
-        public String handleNumberFormatException(Model model) {
-            model.addAttribute("error", "El valor ingresado para edad no es válido. Use sólo números enteros.");
-            return "familias/familia-form"; 
-        }
-    }
+  
 
 }
