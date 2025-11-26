@@ -20,32 +20,7 @@ import com.dimitri.avalo.service.PreparacionService;
 @RequestMapping("/api/preparaciones")
 @CrossOrigin(origins = "*")
 public class PreparacionController {
-/*
-    @Autowired
-    private PreparacionService preparacionService;
 
-  
-    @GetMapping
-    public List<Preparacion> listar() {
-        return preparacionService.listarPreparaciones();
-    }
-
-    @PostMapping
-    public ResponseEntity<Preparacion> registrar(@RequestBody Preparacion preparacion) {
-        return ResponseEntity.ok(preparacionService.registrarPreparacion(preparacion));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Preparacion> modificar(@PathVariable Long id, @RequestBody Preparacion p) {
-        return ResponseEntity.ok(preparacionService.modificarFechaPreparacion(id, p));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        preparacionService.eliminarPreparacion(id);
-        return ResponseEntity.noContent().build();
-    }
-*/
 	 @Autowired
 	    private PreparacionService preparacionService;
 

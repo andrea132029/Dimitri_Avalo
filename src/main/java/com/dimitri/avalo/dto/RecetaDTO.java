@@ -3,6 +3,9 @@ package com.dimitri.avalo.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Datos requeridos para registrar o modificar una receta")
 public class RecetaDTO {
 
     private Long id;
